@@ -15,6 +15,8 @@ test -f "$DIFFSRC" || DIFFSRC="$DIFFDST"
 test -f "$DIFFDST" || touch "$DIFFDST"
 test -f "$MAILBODY" || touch "$MAILBODY"
 
+test -x /etc/profile.d/proxy.sh && . /etc/profile.d/proxy.sh
+
 w3m -dump http://stats.research.icann.org/dns/tld_report/ | \
   grep "^TLD\|^[a-z]*\. " | \
   sed s/"   *"/"\"\,\""/g | \

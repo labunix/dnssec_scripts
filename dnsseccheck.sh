@@ -35,3 +35,4 @@ if [ "$FLAG" == "0" ] ;then
 fi
 
 unset FLAG LOGDIR DIFFSRC DIFFDST MAILBODY
+exit 0

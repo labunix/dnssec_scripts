@@ -23,7 +23,7 @@ w3m -dump http://stats.research.icann.org/dns/tld_report/ | \
 grep "TLD\|jp" $DIFFDST > "$MAILBODY"
 echo -e "\n\n" >> "$MAILBODY"
 
-diff "$DIFFSRC" "$DIFFDST" && \
+diff "$DIFFSRC" "$DIFFDST" || \
   w3m -dump http://www.iana.org/domains/root/db/jp.html >> "$MAILBODY"
 
 cat "$MAILBODY" | mail -s "Check DNSSEC $0" root
